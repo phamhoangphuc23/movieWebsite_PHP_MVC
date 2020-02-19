@@ -1,3 +1,0 @@
-Folder này chứa code HTML, CSS, JS CỦA TỤI EM HEN,
-
-CODE CSS VÀ JS TÁCH RA FILE RIÊNG  ĐỪNG CÓ CODE CHUNG NHA MẤY EM
