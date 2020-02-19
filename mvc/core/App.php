@@ -33,7 +33,31 @@ class App{
         }
     }
 
-
-
-
 }
+
+
+/* get Login: /login/form
+ * post Login /login/attempt
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+*/
