@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Đăng Nhập</title>
+<link rel="shortcut icon" href="images\unnamed.jpg"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="My Play Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' media="all" />
+<!-- //bootstrap -->
+<link href="css/dashboard.css" rel="stylesheet">
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<!--start-smoth-scrolling-->
+<!-- fonts -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<!-- //fonts -->
+<style>
+	html,
+	body {
+	  height: 100%;
+	}
+
+	body {
+	  display: -ms-flexbox;
+	  display: -webkit-box;
+	  display: flex;
+	  -ms-flex-align: center;
+	  -ms-flex-pack: center;
+	  -webkit-box-align: center;
+	  align-items: center;
+	  -webkit-box-pack: center;
+	  justify-content: center;
+	  padding-top: 40px;
+	  padding-bottom: 40px;
+	  background-color: #f5f5f5;
+	}
+
+	.form-signin {
+	  width: 100%;
+	  max-width: 330px;
+	  padding: 15px;
+	  margin: 0 auto;
+	}
+	.form-signin .checkbox {
+	  font-weight: 400;
+	}
+	.form-signin .form-control {
+	  position: relative;
+	  box-sizing: border-box;
+	  height: auto;
+	  padding: 10px;
+	  font-size: 16px;
+	}
+	.form-signin .form-control:focus {
+	  z-index: 2;
+	}
+	.form-signin input[type="name"] {
+	  margin-bottom: -1px;
+	  border-bottom-right-radius: 0;
+	  border-bottom-left-radius: 0;
+	  width: 300px;
+	}
+	.form-signin input[type="password"] {
+	  margin-bottom: 10px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	  width: 300px;
+	}
+	</style>
+</head>
+<!--//-->
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><h1><img src="images/logo1.png" alt="" style="height:80px;margin-left:40px;width:160px; padding-bottom:20px;"/></h1></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+			<div class="top-search">	
+			</div>  
+			<div class="header-top-right">	
+			</div>
+	    </div>
+    </nav>
+	<!--//-->
+	<div>
+	<form action="" method="POST" class="form-signin">
+      
+      <h1 align="center" class="h3 mb-3 font-weight-normal"><b>Admin</b></h1><br></br>
+      <label for="inputName" class="sr-only">Tên đăng nhập</label>
+	  <input name="username" type="text" id="inputName" class="form-control" placeholder="Tên đăng nhập" required autofocus>
+      <br></br>
+	  
+	  <label for="inputPassword" class="sr-only">Mật khẩu</label>
+	  <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required>
+      <br></br>
+	  
+	  <?php
+		session_start();
+		if(isset($_POST["username"])&& isset($_POST["password"])){
+			require_once("conn.php");
+			$username = $_POST["username"];
+			$sql = "SELECT * FROM useradmin WHERE username = '$username'";
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();	
+		if($row["username"]=='quanlyphim' && $row["password"] == $_POST["password"]){
+			$_SESSION["LoggedIn"] = true;
+			header("Location: admin.php");
+		}
+		}
+	  ?>
+	  
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng Nhập</button>
+      <br></br>
+	  
+	  <p align="center">Copyright @TDTU</p>
+	  <p align="center">Design By</p>
+	  <p align="center">51704021 | 51704013</p>
+    </form>
+	</div>
+	<!--//-->
+   
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
